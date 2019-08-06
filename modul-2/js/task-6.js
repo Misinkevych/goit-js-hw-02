@@ -1,18 +1,16 @@
 'use strict';
 
-const checkForSpam = function(str, string) {
-  for (const item of str) {
-    if (item === string) {
-      return true;
-    }
-  }
+// const checkForSpam = function(str) {
+//   const smallStr = str.toLowerCase();
+//   return (smallStr.indexOf('sale') !== -1 || smallStr.indexOf('spam') !== -1) ? true : false;
+// }
 
-  return false;
+const checkForSpam = function(str) {
+  const smallStr = str.toLowerCase();
+  return smallStr.includes('sale') || smallStr.includes('spam') ? true : false;
 };
 
-console.log(checkForSpam('Latest technology news'.split(' ')));
-console.log(checkForSpam('JavaScript weekly newsletter'.split(' ')));
-console.log(checkForSpam('Get best sale offers now!'.split(' '), 'sale'));
-console.log(
-  checkForSpam('[SPAM] How to earn fast money?'.split(' '), '[SPAM]'),
-);
+console.log(checkForSpam('Latest technology news'));
+console.log(checkForSpam('JavaScript weekly newsletter'));
+console.log(checkForSpam('Get best sale offers now!'));
+console.log(checkForSpam('[SPAM] How to earn fast money?'));

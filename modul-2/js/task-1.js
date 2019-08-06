@@ -1,17 +1,20 @@
 'use strict';
 
-// const userToDelete = 'Ajax';
-// const userToInsert = 'Kong';
-const insertBefore = 'Jay';
-const users = ['Mango', 'Poly', 'Ajax', 'Chelsey'];
-console.log(users.shift());
-
-console.log(users.pop());
-
-users.unshift('Lux');
-users.push('Jay', 'Kiwi');
-
-const userToDelete = users.splice(2, 1);
-const userToInsert = users.splice(2, 0, 'Kong');
-
-console.log(users);
+const usersNames = function(users) {
+  users.shift();
+  console.log(users);
+  users.pop();
+  console.log(users);
+  users.unshift('Lux');
+  console.log(users);
+  users.push('Jay', 'Kiwi');
+  console.log(users);
+  const userToDelete = 'Ajax';
+  users.splice(users.indexOf(userToDelete), 1);
+  console.log(users);
+  const userToInsert = 'Kong';
+  const insertBefore = 'Jay';
+  users.splice(users.indexOf(insertBefore), 0, userToInsert);
+  console.log(users);
+};
+usersNames(['Mango', 'Poly', 'Ajax', 'Chelsey']);
