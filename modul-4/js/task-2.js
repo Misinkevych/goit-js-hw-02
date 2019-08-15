@@ -1,27 +1,24 @@
 'use strict';
+
 const inventory = {
   items: ['Монорельса', 'Фильтр'],
-  
   add(itemName) {
-    inventory.items.push(itemName);
+    this.items.push(itemName);
   },
-  
   remove(itemName) {
-    inventory.items = inventory.items.filter(item => item !== itemName);
+    this.items = this.items.filter(item => item !== itemName);
   },
 };
+inventory.add('Аптечка');
+console.log(inventory.items);
 
 const invokeInventoryOperation = function(itemName, inventoryAction) {
-  console.log(`Invoking ${inventoryAction.name} opeartion on ${itemName}`);
-  inventoryAction(itemName);
+  for (let i = 0; i < inventory.length; i++) {
+    inventoryAction(itemName[i]);
+  }
+  console.log(`Invoking ${inventoryAction.name} operation on ${itemName}`);
 };
-
 invokeInventoryOperation('Аптечка', inventory.add);
-// Invoking add opeartion on Аптечка
-
-console.log(inventory.items); // ['Монорельса', 'Фильтр', 'Аптечка']
-
+inventory.remove('Фильтр');
+console.log(inventory.items);
 invokeInventoryOperation('Фильтр', inventory.remove);
-// Invoking remove opeartion on Фильтр
-
-console.log(inventory.items); // ['Монорельса', 'Аптечка']
