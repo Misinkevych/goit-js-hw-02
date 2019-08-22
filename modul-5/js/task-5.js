@@ -7,7 +7,11 @@ class Car {
    * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
    */
   static getSpecs(car) {
-    console.log(car);
+    console.log(
+      `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${
+        car.isOn
+      }, distance: ${car.distance}, price: ${car.price}`,
+    );
   }
 
   /*
@@ -39,12 +43,12 @@ class Car {
    * который будет работать с свойством цены автомобиля.
    */
 
-  getPrice() {
-    return this.price;
+  set value(num) {
+    this.price = num;
   }
 
-  setPrice(price) {
-    this.price = price;
+  get value() {
+    return this.price;
   }
 
   /*
