@@ -17,12 +17,12 @@ class StringBuilder {
   }
 
   prepend(str) {
-    this.value = `${str} ${this.value}`;
+    this.value = `${str}${this.value}`;
   }
   // додає елемент на поч і в кін
   pad(str) {
     // this.value = str + this.value + str;
-    this.value = ` ${str} ${this.value} ${str}`;
+    this.value = `${str}${this.value}${str}`;
   }
 }
 
