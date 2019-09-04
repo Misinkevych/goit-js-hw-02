@@ -5,14 +5,16 @@ import { users } from './users.js';
 //   return users.find(user => user.email === email);
 //   // .map(user => user.name);
 // };
+// const getUserWithEmail = (users, email) => {
+//   return users.find(user => {
+//     user.email === email;
+//   });
+//   // .reduce((acc, user) => {
+//   //   return user;
+//   // });
+// };
 const getUserWithEmail = (users, email) => {
-  return users
-    .filter(user => {
-      return user.email === email;
-    })
-    .reduce((acc, user) => {
-      return user;
-    });
+  return users.find(user => user.email === email);
 };
 
 console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
