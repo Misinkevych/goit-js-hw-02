@@ -5,3 +5,10 @@
 #validation-input.invalid {
   outline: 3px solid #f44336;
 }
+
+.photo {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  list-style: none;
+}
