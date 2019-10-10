@@ -1,3 +1,231 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Webpack Starter Kit</title><style>.intro {
-        text-align: center;
-      }</style><link href="main.0.97830f2d7d6461a0b078.css" rel="stylesheet"></head><body><article class="intro"><h1>Webpack starter kit</h1><img src="images/intro.png" alt="" width="640"></article><script src="runtime.558836efb712aeee510b.js"></script><script src="main.a9077d4fc2ef8764bab1.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Menu</title><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><style>html {
+      box-sizing: border-box;
+      width: 100vw;
+      overflow-x: hidden;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      transition: color 150ms ease-out, background-color 150ms ease-out;
+    }
+
+    body.light-theme {
+      background-color: #fff;
+      color: #333333;
+    }
+
+    body.dark-theme {
+      background-color: #333333;
+      color: #fff;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px 24px;
+    }
+
+    /* THEME SWITCH */
+    .theme-switch {
+      display: flex;
+      align-items: center;
+      transition: color 150ms ease-in 0;
+    }
+
+    .theme-switch__icon {
+      color: currentColor;
+      height: 26px;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+
+    .switch {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      position: relative;
+      width: 64px;
+      height: 32px;
+      border-radius: 50em;
+      padding: 3px 0;
+    }
+
+    .switch__input,
+    .switch__label {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .switch__input {
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      height: 0;
+      width: 0;
+      pointer-events: none;
+    }
+
+    .switch__input:checked + .switch__label {
+      background-color: #d3d3d4;
+    }
+
+    .switch__input:checked + .switch__label + .switch__marker {
+      left: calc(100% - 29px);
+    }
+
+    .switch__input:focus + .switch__label,
+    .switch__input:active + .switch__label {
+      box-shadow: 0 0 0 3px #2a6df433;
+    }
+
+    .switch__label {
+      width: 100%;
+      height: 100%;
+      color: transparent;
+      user-select: none;
+      background-color: #333;
+      border-radius: inherit;
+      z-index: 1;
+      transition: background-color 150ms;
+      cursor: pointer;
+    }
+
+    .switch__marker {
+      position: relative;
+      background-color: #fff;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      z-index: 2;
+      pointer-events: none;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+      left: 3px;
+      transition: left 200ms;
+      will-change: left;
+    }
+
+    /* MENU */
+
+    .menu {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      max-width: calc(100% - 64px);
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-gap: 24px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding-bottom: 8px;
+    }
+
+    .card__content {
+      display: flex;
+      flex-direction: column;
+      padding: 8px;
+      flex-grow: 1;
+    }
+
+    .card__image {
+      height: 300px;
+      object-fit: cover;
+      max-width: 100%;
+    }
+
+    .card__name {
+      margin-top: 16px;
+      margin-bottom: 0;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .card__descr {
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .card__price {
+      display: flex;
+      align-items: center;
+      margin-top: 24px;
+      font-size: 20px;
+    }
+
+    .card__price i {
+      margin-right: 8px;
+      font-size: 24px;
+    }
+
+    .card__reviews {
+      display: block;
+      margin-top: 16px;
+    }
+
+    .card__button {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 16px;
+      width: calc(100% - 16px);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .tag-list__item {
+      padding: 4px 8px;
+      margin: 4px;
+      border-radius: 2px;
+      background-color: #3f51b5;
+      color: #fff;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background-color: #2196f3;
+      border: 0;
+      outline: 0;
+      padding: 8px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
+      font: inherit;
+      font-weight: 500;
+      user-select: none;
+      transition: background-color 200ms ease-in-out;
+    }
+
+    .button:hover {
+      box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.15);
+      background-color: #1976d2;
+    }
+
+    .button__icon {
+      margin-right: 8px;
+    }</style><link href="main.0.f4825b21ec6c212c966c.css" rel="stylesheet"></head><body><div class="toolbar"><div class="theme-switch"><svg aria-hidden="true" data-prefix="fas" data-icon="sun" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="theme-switch__icon"><path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"></path></svg><div class="switch"><input class="switch__input" type="checkbox" name="theme" id="theme-switch-control"> <label aria-hidden="true" class="switch__label" for="theme-switch-control">On</label><div aria-hidden="true" class="switch__marker"></div></div><svg aria-hidden="true" data-prefix="fas" data-icon="moon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="theme-switch__icon"><path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg></div></div><ul class="menu" id="menu"></ul><script src="runtime.558836efb712aeee510b.js"></script><script src="vendors.b3b896e10677f749505e.js"></script><script src="main.699b4af8902d0ca91c53.js"></script></body></html>
