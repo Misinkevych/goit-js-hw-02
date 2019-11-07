@@ -1,0 +1,24 @@
+<h2 class="head">{{name}}</h2>
+<div class="info-countri ">
+    <table>
+        <tbody>
+            <tr>
+                <td><b>Capital:</b></td>
+                <td>{{capital}}</td>
+            </tr>
+            <tr>
+                <td><b>Population:</b></td>
+                <td>{{population}}</td>
+            </tr>
+            <tr>
+                <td><b>Languages:</b></td>
+                <td>
+                    <ul>{{#each languages}}<li>{{this.name}}
+                        </li>{{/each}}
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <img src="{{flag}}" alt="{{name}}" />
+</div>
