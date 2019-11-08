@@ -1,7 +1,7 @@
 import './styles.css';
 import PNotify from '../node_modules/pnotify/dist/es/PNotify';
 import '../node_modules/pnotify/src/PNotifyBrightTheme.css';
-import fetch from './js/fetch';
+import fetch from './js/fetch.js';
 
 import debounce from '../node_modules/lodash';
 import countri from './template/countryTemplayte.hbs';
